@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+      viewport-fit=cover" />
+    <meta name="Pandemic Legacy Season 0 Card Tracker" content="App for deck
+      tracking.">
+    <base href="/">
+    <title>Pandemic Legacy Season 0 Card Tracker</title>
+  </head>
+
+  <body>
+    <!-- SPA -->
+    <pandemic-tracker></pandemic-tracker>
+
+    <!-- # Styles -->
+    <style>
+      /* Margin in the set by browsers body causes the nav bar to not span the page */
+      body {
+        margin: unset;
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Squada+One&family=Teko:wght@500&display=swap"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@600&family=Squada+One&display=swap"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Squada+One&display=swap"
+      rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <script type="module">
+      import './src/polyfills/index';
+      import './out-tsc/src/PandemicTracker.js';
+      import './out-tsc/src/components/threat-deck/threat-deck.js';
+      import './out-tsc/src/components/affiliation-icon.js';
+      import './out-tsc/src/components/location-card.js';
+    </script>
+    <script type="module">
+      import '@material/mwc-button';
+      import '@material/mwc-icon-button';
+      import '@material/mwc-icon';
+      import '@material/mwc-top-app-bar-fixed';
+      import '@material/mwc-linear-progress';
+      import '@material/mwc-list/mwc-list';
+      import '@material/mwc-list/mwc-list-item';
+      import '@material/mwc-menu';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+{
+  "scripts": {
+    "lint:eslint": "eslint --ext .ts,.html . --ignore-path .gitignore",
+    "format:eslint": "eslint --ext .ts,.html . --fix --ignore-path .gitignore",
+    "lint:prettier": "prettier \"**/*.js\" \"**/*.ts\" --check --ignore-path .gitignore",
+    "format:prettier": "prettier \"**/*.js\" \"**/*.ts\" --write --ignore-path .gitignore",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "format": "npm run format:eslint && npm run format:prettier",
+    "test": "rimraf out-tsc && tsc && web-test-runner",
+    "test:watch": "web-test-runner --watch",
+    "build": "rimraf docs && tsc && rollup -c rollup.config.js",
+    "start": "concurrently --kill-others --names tsc,web-dev-server \"npm run tsc:watch\" \"web-dev-server --app-index index.html --node-resolve --open --watch\"",
+    "tsc:watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "@esm-bundle/chai": "^4.1.5",
+    "@material/mwc-button": "^0.19.1",
+    "@material/mwc-icon": "^0.19.1",
+    "@material/mwc-icon-button": "^0.19.1",
+    "@material/mwc-linear-progress": "^0.19.1",
+    "@material/mwc-list": "^0.19.1",
+    "@material/mwc-menu": "^0.19.1",
+    "@material/mwc-select": "^0.19.1",
+    "@material/mwc-tab-bar": "^0.19.1",
+    "@material/mwc-top-app-bar-fixed": "^0.19.1",
+    "@open-wc/building-rollup": "^1.0.0",
+    "@open-wc/eslint-config": "^4.0.0",
+    "@open-wc/testing": "^2.0.0",
+    "@reduxjs/toolkit": "^1.4.0",
+    "@shoelace-style/shoelace": "^2.0.0-beta.23",
+    "@types/node": "13.11.1",
+    "@types/resize-observer-browser": "^0.1.4",
+    "@typescript-eslint/eslint-plugin": "4.0.0",
+    "@typescript-eslint/parser": "4.0.0",
+    "@web/dev-server": "^0.0.12",
+    "@web/test-runner": "^0.7.42",
+    "@webcomponents/webcomponentsjs": "^2.5.0",
+    "concurrently": "^5.1.0",
+    "deepmerge": "^4.2.2",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^1.0.0",
+    "lint-staged": "^10.0.0",
+    "lit-element": "^2.0.1",
+    "lit-html": "^1.0.0",
+    "prettier": "^2.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "rimraf": "^2.6.3",
+    "rollup": "^2.3.4",
+    "ts-lit-plugin": "^1.2.1",
+    "tslib": "^1.11.0",
+    "typescript": "^4.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config",
+      "eslint-config-prettier"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "name": "pandemic-tracker",
+  "version": "0.0.0",
+  "description": "Webcomponent pandemic-tracker following open-wc recommendations",
+  "author": "pandemic-tracker",
+  "license": "MIT",
+  "dependencies": {
+    "ts-deepmerge": "^1.0.6"
+  },
+  "engines": {
+    "node": "^15.3.0"
+  }
+}
