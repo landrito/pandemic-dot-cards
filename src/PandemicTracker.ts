@@ -114,6 +114,7 @@ export class PandemicTracker extends LitElement {
   }
 
   render(): TemplateResult[] {
+    // return [html`<setup-pandemic></setup-pandemic>`]
     return [
       html` <mwc-top-app-bar-fixed id="nav-bar">
           <mwc-icon-button

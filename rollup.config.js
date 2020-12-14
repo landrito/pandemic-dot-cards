@@ -14,8 +14,8 @@ const baseConfig = createSpaConfig({
 
   // gh-pages uses the repo name as the public path.
   html: {
-    publicPath: '/pandemic-tracker/'
-  }
+    publicPath: '/pandemic-tracker/',
+  },
 });
 
 export default merge(baseConfig, {
